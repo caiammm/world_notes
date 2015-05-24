@@ -2,13 +2,37 @@
 <html>
 <head>
   <title>WorldNotes</title>
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+
+
 </head>
 <body>
-
-<%= yield %>
-
+  <header class="slide">
+    <ul id="navToggle" class="menu_resp slide">
+      <li></li><li></li><li></li>
+    </ul>
+    <h1><%= image_tag( image_path('logo.png') )%></h1>
+  </header>
+  <nav class="slide">
+    <ul>
+      <li><a href="#" class="active">PÁGINA INICIAL</a></li>
+      <li><a href="#">SOBRE</a></li>
+      <li><a href="#">CATEGORIAS</a></li>
+      <li><a href="#">MINHA CONTA</a></li>
+      <li><a href="#">CONTATO</a></li>
+    </ul>
+  </nav>
+  <div class="content slide">
+    <ul class="responsive">
+      <%= yield %>
+    </ul><!-- responsive -->
+  </div><!-- content slide -->
 </body>
 </html>
