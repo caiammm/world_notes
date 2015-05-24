@@ -1,7 +1,7 @@
 WorldNotes::Application.routes.draw do
 
 
-
+  get 'my_account/:id', to: 'users#my_account'
 
   resources :posts do
     resources :comments
