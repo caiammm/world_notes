@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: vagrant
-  password: redealumni
+  username: postgres
+  password: C4c3c2c1
   locale: pt_BR.UTF8
   pool: 5
   #port diferente para usar na máquina local, sem ser no vagrant. Para usar no vagrant, comentar a linha abaixo
