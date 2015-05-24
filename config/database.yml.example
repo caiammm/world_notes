@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: vagrant
+  password: redealumni
+  locale: pt_BR.UTF8
+  pool: 5
+  #port diferente para usar na máquina local, sem ser no vagrant. Para usar no vagrant, comentar a linha abaixo
+  port: 5433
+
+development:
+  <<: *default
+  database: world_notes_development
+
+test:
+  <<: *default
+  database: world_notes_test
+
+production:
+  database: world_notes_production
