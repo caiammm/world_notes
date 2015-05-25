@@ -3,6 +3,8 @@ WorldNotes::Application.routes.draw do
 
   get 'my_account/:id', to: 'users#my_account'
 
+  get 'contact', to: 'static_pages#contact'
+
   resources :posts do
     resources :comments
   end

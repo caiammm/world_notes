@@ -1,0 +1,40 @@
+body{
+	font: 14px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #9aa6af;
+}
+.div_tabela{ 
+	width:70%;
+	margin-left:15%
+}
+
+
+.div_tabela a{	color: #2e436f;}
+
+.div_tabela p{
+	text-align:center;
+	font-size:16px;
+	padding-top:50px;
+}
+
+/* Customized Demo CSS for our Demo Tables */
+.tablesaw-columntoggle td.title a,
+.tablesaw-swipe td.title a {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 10em;
+}
+@media (min-width: 40em) {
+	td.title {
+		max-width: 12em;
+	}
+	.tablesaw-stack td.title a {
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 10em;
+		max-width: 40vw;
+	}
+}
