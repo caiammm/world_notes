@@ -5,6 +5,8 @@ WorldNotes::Application.routes.draw do
 
   get 'contact', to: 'static_pages#contact'
 
+  get 'about', to: 'static_pages#about'
+
   resources :posts do
     resources :comments
   end

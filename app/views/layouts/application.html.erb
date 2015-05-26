@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 
   <meta charset="utf-8">
-  <link rel="shortcut icon" href="images/favicon.ico">
+  <%= favicon_link_tag 'favicon.ico' %>
   <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
 
 
@@ -18,7 +18,7 @@
     <ul id="navToggle" class="menu_resp slide">
       <li></li><li></li><li></li>
     </ul>
-    <h1><%= image_tag( image_path('logo.png') )%></h1>
+    <h1><a href="#"><%= image_tag( image_path('logo.png') )%></a></h1>
   </header>
 
 
@@ -29,9 +29,11 @@
       <li><a href="#">CRIAR CONTA</a></li>
             <li><a href="#">SOBRE</a></li>
             <li><a href="#">CONTATO</a></li>
-            <li><a href="#" id="notification-pesquisar" class="progress-button">PESQUISAR</a></li>
+            <!-- FORM PESQUISAR E LOGIN EST~AO EM JAVASCRIPT/LOGIN/ABRIR.JS-->
+            <li><a href="#" id="notification-pesquisar" class="progress-button">PESQUISAR</a></li>  
       <a href="#" id="notification-login" class="progress-button">
-        <%= image_tag( image_path("icones/usuario_geral.png"), class: 'usuario_menu') %>
+        <%= image_tag( image_path("icones/usuario_geral.png"), class: 'usuario_menu') %> 
+        <!-- SE TIVER LOGADO IR P/ MINHA CONTA-->
       </a>
       <%= javascript_include_tag "login/classie" %>
       <%= javascript_include_tag "login/notificationFx" %>
