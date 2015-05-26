@@ -1,6 +1,6 @@
 WorldNotes::Application.routes.draw do
 
-
+  get 'signup', to: 'users#new'
 
 
   resources :posts do
