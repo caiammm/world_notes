@@ -11,19 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+
+
+
+
+
+<!-- CADASTRO -->
+<div class="form_estilo">
+  <h1>Cadastre já <br/> É SIMPLES!</h1>
+  
+  <form id="" action="">
+    <label for="titulo">Email*</label><br />
+        <input maxlength="40" class="form_input" id="nome" type="text" value="" /><br /><br />
+        
+        <label for="titulo">Username*</label><br />
+        <input maxlength="20" class="form_input" id="usernome" type="text" value="" /><br /><br />
+        
+    <div class="div_senha_resp">
+      <div class="section group">
+        <div class="col span_1_of_2">
+          <label for="">Senha</label><br />
+            <input maxlength="8" class="form_input_senha" id="" type="text" value="" />
+        </div>
+        <div class="col span_1_of_2">
+          <label for="">Repetir Senha</label><br />
+            <input maxlength="8" class="form_input_senha" id="" type="text" value="" />
+        </div>
+      </div>
+    </div>
+
+        <input type="submit" value="Enviar">
+  </form>
+</div><br /><br />
+<!-- CADASTRO -->
+
+
+
+<!-- COMENTADO
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
     <%= f.text_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %>''
   </div>
 <% end %>
+COMENTADO -->
