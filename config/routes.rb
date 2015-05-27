@@ -1,8 +1,14 @@
 WorldNotes::Application.routes.draw do
 
+  
+  root 'posts#index'
+  get    'login', to: 'sessions#new'
+  post   'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  get 'signup', to: 'users#new'
 
   get 'my_account/:id', to: 'users#my_account'
-
+  
   get 'contact', to: 'static_pages#contact'
 
   get 'about', to: 'static_pages#about'
