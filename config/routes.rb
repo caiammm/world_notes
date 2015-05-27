@@ -7,7 +7,7 @@ WorldNotes::Application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'signup', to: 'users#new'
 
-  get 'my_account/:id', to: 'users#my_account'
+  get 'my_account/:id', to: 'users#my_account', as: "my_account"
   
   get 'contact', to: 'static_pages#contact'
 
