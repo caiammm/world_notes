@@ -25,14 +25,25 @@
       <li><a href="#" class="active">PÁGINA INICIAL</a></li>
       <li><a href="#">SOBRE</a></li>
       <li><a href="#">CATEGORIAS</a></li>
-      <li><a href="#">MINHA CONTA</a></li>
       <li><a href="#">CONTATO</a></li>
+      <% if logged_in? %>
+        <li><a href="#">MINHA CONTA</a></li>
+        <li><%= link_to "SAIR", logout_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "ENTRAR", login_path %></li>
+      <% end %>
     </ul>
   </nav>
   <div class="content slide">
     <ul class="responsive">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
     </ul><!-- responsive -->
   </div><!-- content slide -->
+  <% if Rails.env.development? %>
+  <div id='debugerDiv'> <%= debug(params) %> </div>
+  <% end %>
 </body>
 </html>
