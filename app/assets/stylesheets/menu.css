@@ -42,10 +42,14 @@ nav li a {
 	font-size: 11px;
 	color: #ffffff;
 	padding: 24px 15px;
-	
 	display: block;
 }
+
 nav li a:hover {color: #59a7f6;}
+
+.menu_napagina{color: #59a7f6;}
+.usuario_menu{ margin-right:17px; margin-top:4px; margin-left:20px; border-radius:4px}
+
 /* //MENU */
 
 
@@ -73,6 +77,9 @@ header h1 {
 }
 .menu_resp {display: block;}
 
+.menu_napagina{color: #59a7f6;}
+.usuario_menu{ margin-left:90px; margin-top:15px;}
+
 /*  Nav Drawer Layout  */
 nav {position: relative;}
 nav ul {
@@ -89,8 +96,9 @@ nav li a {
 	font-size: 14px;
 	color:#2e436f;
 }
+
 nav li a.logo {display: none;}
-nav li a.active {
+nav li a.first {
 	color: #fff;
 	background-color: #2e436f;
 }
@@ -98,9 +106,9 @@ nav li a:hover {
 	color: #59a7f6;
 	background-color: #2e436f;
 }
-nav li:first-child a.active,
+nav li:first-child a.first,
 nav li:first-child a:hover 
-{border-radius: 10px 0 0 0;}
+{border-radius: 0px 0 0 0;}
 .header-section {margin-top: 60px;}
 
 /* NAVIGATION ANNIMATION */

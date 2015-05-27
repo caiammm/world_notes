@@ -1,54 +1,53 @@
 /* GERAL */
 body {
-	background-color: #000;
+	background-color: #fff;
 	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #9aa6af;
 	text-rendering: optimizelegibility;
 }
-a {text-decoration: none;}
-.titulo{
-  width:98%;
-  text-align:left;
-  font-size:25px;
-  color: #2E436F;
+a {text-decoration: none; color:#2E436F}
+.titulo{ 
+	width:98%; 
+	text-align:left;
+	font-size:25px;
+	color: #2E436F;
 }
+.titulo_linha{
+	width:99%;
+	margin-bottom:35px;
+	color:#2E436F;
+	}
+
+.centralizar_TM{ padding-left: 6%}
+
+.contact{ text-align: center; font-size: 17px; padding-bottom: 270px}
+
+.about{font-size: 17px; padding-bottom: 50px; padding-left: 10%; padding-right: 10%}
+
 /* //GERAL */
 
 /* CONTEÚDO  */
-.header-section,
 .body-section,
-.footer-section{
-  padding: 20px;
-}
-.header-section {
-  background-color: #ffffff;
-}
-.body-section {
-  background-color: #f4f5f6;
-}
-.footer-section {
-  background-color: #fff;
-}
+.footer-section 
+{padding: 20px;}
+.header-section {background-color: #ffffff;}
+.body-section {background-color: #f4f5f6; padding-bottom: 150px}
+.footer-section {background-color: #fff;}
 .placefiller {
 	text-align: center;
 	font-size: 20px;
 }
-.header-section .placefiller {
-  line-height: 300px;
-}
-.body-section .placefiller {
-  line-height: 900px;
-}
-.footer-section .placefiller {
-	line-height: 50px;
-}
+.header-section .placefiller {line-height: 300px; margin-bottom:200px}
+.body-section .placefiller {line-height: 900px;}
+.footer-section .placefiller {line-height: 50px;}
+
 
 @media only screen and (max-width: 780px) {}
 
 /* BANNER */
-.img_banner {
-  width:100%;
-}
+
+.banner_principal{background-color:#FFF; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:23px}
+.img_banner { width:100%;}
 .img_zoom {
 	position: relative;
 	overflow: hidden;
@@ -64,39 +63,42 @@ a {text-decoration: none;}
 }
 .img_zoom:hover > img {
 	-webkit-transform: scale(1.5);
- 	-moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  transform: scale(1.5);
+   	-moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
 }
 .img_zoom .img_texto{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
-  text-align: center;
-  padding: 30px;
-
-  -webkit-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
-  -moz-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
-   -ms-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
-    -o-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
-       transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;    
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);    
+    border-radius: 2px;
+    text-align: center;
+    padding: 70px;
+ 
+    -webkit-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+    -moz-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+     -ms-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+      -o-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+         transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
 }
 .img_zoom:hover .img_texto {
     opacity: 1;
     box-shadow: inset 0 0 100px 50px rgba(0,0,0,.5);
 }
 .img_zoom .img_texto p {
-	padding-right: 55px;
-	padding-top: 25%;
-	font-size: 20px;
+	padding-right:15px;
+	padding-top:25%;
+	font-size:20px;
 	color: #fff;
 }
+
+/* RESPONSIVIDADE BANNER E FORM */
+
 /*  SECTIONS  */
 .section {
 	clear: both;
@@ -106,59 +108,60 @@ a {text-decoration: none;}
 /*  COLUMN SETUP  */
 .col {
 	display: block;
-	float: left;
+	float:left;
 	margin: 1% 0 0% 1%;
 }
-.col:first-child {
-  margin-left: 0;
-}
+.col:first-child { margin-left: 0; }
 /*  GROUPING  */
 .group:before,
-.group:after {
-  content: "";
-  display: table;
-}
-.group:after {
-  clear: both;
-}
-.group {
-  zoom: 1; /* For IE 6/7 */
-}
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
 /*  GRID OF FOUR  */
-.span_4_of_4 {
-	width: 100%;
-}
-.span_3_of_4 {
-	width: 74.75%;
-}
-.span_2_of_4 {
-	width: 49.5%;
-}
-.span_1_of_4 {
-	width: 24.25%;
-}
+.span_4_of_4 {width: 100%;}
+.span_3_of_4 {	width: 74.75%;}
+.span_2_of_4 {width: 49.5%;}
+.span_1_of_4 {width: 24.25%;}
+
+/*  GRID OF TWO  */
+.span_2_of_2 {width: 100%;}
+.span_1_of_2 {width: 49.5%;}
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.33%; }
+.span_1_of_3 { width: 32.66%; }
+
+
 /*  GO FULL WIDTH BELOW 480 PIXELS */
 
 @media only screen and (max-width: 650px) {
-	.col {
-    margin: 1% 0 1% 0%;
-  }
-	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 {
-    width: 100%;
-  }
+	.col {  margin: 1% 0 1% 0%; }
+	.span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4 { width: 100%; } /* BANNER */
+	.span_2_of_2, .span_1_of_2 { width: 100%; line-height:20px } /* FORM - SENHA */
+	.span_1_of_2 { margin-bottom:20px}  /* FORM - SENHA */
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+	.acoes{	width:100%;}
+    .centralizar_TM{ margin-right: 50px}
+    .body-section { padding-top: 75px}
 }
+
+@media only screen and (max-width: 1000px) {
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+	.opcoes{width:100%; margin-left:0%}
+    .centralizar_TM{ margin-right: 50px}
+}
+
 /* //BANNER */
 
 /* TIMELINE */
 section {
-    padding-right: 85px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     height: 100%;
-    width: 80%;
+    width: 86%;
     margin: auto;
 }
-.comment {
+.post {
     overflow: hidden;
     padding: 0 0 1em;
     border-bottom: 1px solid #ddd;
@@ -167,65 +170,55 @@ section {
     *zoom: 1;
     width: 100%;
 }
-.comment-img {
+.post-img {
     float: left;
     margin-right: 33px;
     border-radius: 5px;
     overflow: hidden;
 }
-.comment-img img {
-  display: block;
+.post-img img { display: block }
+.post-body { overflow: hidden }
+.post .text {
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fff;
 }
-.comment-body {
-  overflow: hidden;
-}
-.comment .text {
-  padding: 10px;
-  border: 1px solid #e5e5e5;
-  border-radius: 5px;
-  background: #fff;
-}
-.comment .text p:last-child {
-  margin: 0;
-}
-.comment .attribution {
-  margin: 0.5em 0 0;
-  font-size: 14px;
-  color: #666;
+.post .text p:last-child { margin: 0 }
+.post .attribution {
+    margin: 0.5em 0 0;
+    font-size: 14px;
+    color: #666;
 }
 /* Decoration */
-.comments, .comment {
-  position: relative;
+.posts, .post { position: relative }
+.posts:before, .post:before, .post .text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 65px;
 }
-.comments:before, .comment:before, .comment .text:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 65px;
+.posts:before {
+    width: 3px;
+    left: 105px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.1);
 }
-.comments:before {
-  width: 3px;
-  left: 105px;
-  bottom: 0px;
-  background: rgba(0,0,0,0.1);
+.post:before {
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    margin: 16px 0 0 -6px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+    background: #ccc;
 }
-.comment:before {
-  width: 9px;
-  height: 9px;
-  border: 3px solid #fff;
-  border-radius: 100px;
-  margin: 16px 0 0 -6px;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
-  background: #ccc;
+.post:hover {
+    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */ 
+    /* cursor: cell;  This line is for the cursor */
 }
-.comment:hover {
-  /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */
-  /* cursor: cell;  This line is for the cursor */
-}
-.comment:hover:before {
-  background: #2E436F;
-}
-.comment .text:before {
+.post:hover:before { background: #2E436F }
+.post .text:before {
     top: 18px;
     left: 78px;
     width: 9px;
@@ -239,9 +232,125 @@ section {
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
 }
-.comment .text p {
-	font-size:20px;
+.post .text h1 {
+	font-size:26px;
+	margin-bottom:15px;
 }
+.post .text p {
+	font-size:17px;
+}
+
+.post .acoes{
+	text-align:right;
+	margin-bottom:10px;
+}
+
+
+/* COMENTARIO */
+
+.comentario {
+    overflow: hidden;
+    padding: 0 0 1em;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 1em;
+    margin-left: 40px;
+    *zoom: 1;
+    width: 100%;
+}
+.comentario-img {
+    float: left;
+    margin-right: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.comentario-img img { display: block; padding-left:90px;}
+.comentario-body { overflow: hidden }
+.comentario .text {
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    background: #fff;
+}
+.comentario .text p:last-child { margin: 0 }
+.comentario .attribution {
+    margin: 0.5em 0 0;
+    font-size: 14px;
+    color: #666;
+}
+/* Decoration */
+.comentarios, .comentario { position: relative }
+.comentarios:before, .comentario:before, .comentario .text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 65px;
+}
+.comentarios:before {
+    width: 3px;
+    left: 105px;
+    bottom: 0px;
+    background: rgba(0,0,0,0.1);
+}
+.comentario:before {
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    margin: 16px 0 0 -6px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+    background: #ccc;
+}
+.comentario:hover {
+    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */ 
+    /* cursor: cell;  This line is for the cursor */
+}
+.comentario:hover:before { background: #59a7f6 }
+.comentario .text:before {
+    top: 18px;
+    left: 150px;
+    width: 9px;
+    height: 9px;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+.comentario .text h1 {
+	font-size:26px;
+	margin-bottom:15px;
+}
+.comentario .text p {
+	font-size:17px;
+}
+
+.comentario .acoes{
+	text-align:right;
+	margin-bottom:10px;
+}
+
+
+
+
+
+
+
+
+/* OPÇOES   */
+
+.opcoes{
+	display:none;
+	text-align:center;
+	padding-bottom:20px;
+	font-size:16px;
+	width:40%;
+	margin-left:30%
+}
+
+.opcoes_img{ vertical-align:central}
 /* //TIMELINE */
 
 @mixin box_sizing {
