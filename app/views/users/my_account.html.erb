@@ -5,8 +5,6 @@
 <hr class="titulo_linha">
                 
 
-<%= link_to "SAIR", logout_path, method: "delete" %>
-                
 <!-- MINHA CONTA -->
 	<div class="div_tabela">
     		<table class="tablesaw" data-tablesaw-mode="columntoggle" data-tablesaw-minimap>
@@ -60,7 +58,9 @@
 				</tr>
 			</tbody>
 		</table>
-		<p><a href="">Excluir conta</a></p>
+		
+		<%= link_to "Sair", logout_path, method: "delete" %>
+		<%= link_to 'Destroy', current_user, method: :delete, data: { confirm: 'Tem certeza?' } %>
     </div>
                 
 </li> <!-- body-section -->
