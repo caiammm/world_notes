@@ -36,7 +36,7 @@
       <li><%= link_to "CONTATO", contact_path %></li>
       <li><a href="#">PESQUISAR</a></li>
       <% if logged_in? %>
-        <%= link_to image_tag( image_path("icones/minha_conta.png"), class: 'usuario_menu'), my_account_path(current_user) %>
+        <%= link_to gravatar_for_menu(current_user), my_account_path(current_user) %>
       <% else %>
         <%= link_to image_tag( image_path("icones/usuario_geral.png"), class: 'usuario_menu'), login_path %>
       <% end %>
