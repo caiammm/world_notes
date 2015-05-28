@@ -1,19 +1,29 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<li class="body-section">
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<!-- TÍTULO -->
+<div align="center"><div class="titulo">Criar Conta</div></div>
+<hr class="titulo_linha">
+
+<!-- CONTEUDO -->
+<div class="login_div">
+
+  <% provide(:title, "Log in") %>
+
     <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: "form_input" %><br /><br />
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :password %><br />
+      <%= f.password_field :password, class: "form_input" %><br /><br />
+    
+      <p align="center">Novo Usuário? <%= link_to "Criar Conta", signup_path %></p>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Entrar", class: "btn btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
 </div>
+
+
+              
+</li> <!-- body-section -->
