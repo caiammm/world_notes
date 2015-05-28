@@ -1,16 +1,62 @@
-<h1>Listing favorites</h1>
+<li class="body-section">
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Post</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<!-- TÍTULO -->
+<div align="center"><div class="titulo">Favoritos</div></div>
+<hr class="titulo_linha">
+                
 
+<!-- FAVORITOS -->
+  <div class="div_tabela">
+        <table class="tablesaw" data-tablesaw-mode="columntoggle" data-tablesaw-minimap>
+      <thead>
+        <tr>
+          <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nome da PastaçdsuOHLURHLERHEWLRHEWLURHWELUR</th>
+          <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="title"><a href="">Aqui vai o Título 1</a></td>
+          <td><a href="">Excluir</a></td>
+        </tr>
+        <tr>
+          <td class="title"><a href="">Aqui vai o Título 2</a></td>
+          <td><a href="">Excluir</a></td>
+        </tr>
+        <tr>
+          <td class="title"><a href="">Aqui vai o Título 3</a></td>
+          <td><a href="">Excluir</a></td>
+        </tr>
+      </tbody>
+    </table><br/><br/>
+        
+        <table class="tablesaw" data-tablesaw-mode="columntoggle" data-tablesaw-minimap>
+      <thead>
+        <tr>
+          <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Nome da PastaçdsuOHLURHLERHEWLRHEWLURHWELUR</th>
+          <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="title"><a href="">Aqui vai o Título 1</a></td>
+          <td><a href="">Excluir</a></td>
+        </tr>
+        <tr>
+          <td class="title"><a href="">Aqui vai o Título 2</a></td>
+          <td><a href="">Excluir</a></td>
+        </tr>
+        <tr>
+          <td class="title"><a href="">Aqui vai o Título 3</a></td>
+          <td><a href="">Excluir</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+<!-- GUARDAR 
   <tbody>
     <% @favorites.each do |favorite| %>
       <tr>
@@ -23,7 +69,6 @@
     <% end %>
   </tbody>
 </table>
+-->
 
-<br>
 
-<%= link_to 'New Favorite', new_user_favorite_path %>
