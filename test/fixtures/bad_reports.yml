@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  post_id: 1
+  reason: MyString
+  abusive: false
+  bad_language: false
+  spam: false
+
+two:
+  user_id: 1
+  post_id: 1
+  reason: MyString
+  abusive: false
+  bad_language: false
+  spam: false

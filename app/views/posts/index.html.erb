@@ -1,81 +1,73 @@
 <div class="banner_principal">
-    <li class="header-section">
-            <div class="section group">
-              <% %w(INFORMÁTICA CULINÁRIA PROFISSÃO AUTOMOTIVOS CONSERTOS GAMES EDUCAÇÃO TECNOLOGIA).each_with_index do |subject, index| %>
-              <% if index+1 == 5 %>
-                <div class="section group">
-              <% end %>
-              <div class="col span_1_of_4">
-                <div class="img_zoom">
-                  <%= image_tag( image_path("banner/#{index+1}.jpg"), class: 'img_banner') %>
-                  <div class="img_texto"> <p><%= subject %></p> </div>
-                </div>
-              </div>
-              <% end %>
-            </div>
-    </li>
+  <li class="header-section">
+    <div class="section group">
+      <% @subjects.each_with_index do |subject, index| %>
+        <% if index+1 == 5 %>
+          <div class="section group">
+        <% end %>
+        <div class="col span_1_of_4">
+          <div class="img_zoom">
+            <%= image_tag( image_path("banner/#{index+1}.jpg"), class: 'img_banner') %>
+            <div class="img_texto"> <p><%= subject %></p> </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </li>
 </div>
 <!-- //BANNER -->
 
 <li class="body-section">
 
-<!-- TÍTULO -->
-<div align="center"><div class="titulo">Publicações Mais Votadas</div></div>
-<hr class="titulo_linha">
-                
-<!-- TIMELINE -->
-<div class="centralizar_TM">
-<section class="posts">
-  <% @posts.each_with_index do |post, index| %>
-  <article class="post">
-    <a class="post-img" href="#">
-      <%= image_tag( image_path("usuarios/usuario_1.jpg")) %>
-    </a>
-    <div class="post-body">
-      <div class="text">
-              <h1><%= link_to post.title, post_path(post) %></h1>
-        <p onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </p>
-      </div>
-      <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %> às 2:20pm, 4 Dez 2015</p>
-      <% if logged_in? %>
-      <p class="acoes">
-        <% if post.user.id == current_user.id %>
-        <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
-        <a onclick="document.getElementById('opcoes<%=index+1%>').style.display='block';"><%= image_tag( image_path("icones/opcoes.png")) %></a> <!-- PRA CADA POST TEM Q C 1 FUNCAOZINHA TIPO OPCOES3...4...-->
-        <div id="opcoes<%=index+1%>" class="opcoes">
-          <div class="section group">
-            <div class="col span_1_of_3">
-              <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
+  <!-- TÍTULO -->
+  <div align="center"><div class="titulo">Publicações Mais Votadas</div></div>
+  <hr class="titulo_linha">
+
+  <!-- TIMELINE -->
+  <div class="centralizar_TM">
+    <section class="posts">
+      <% @posts.each_with_index do |post, index| %>
+        <article class="post">
+          <a class="post-img" href="#">
+            <%= image_tag( image_path("usuarios/usuario_1.jpg")) %>
+          </a>
+          <div class="post-body">
+            <div class="text">
+                    <h1><%= link_to post.title, post_path(post) %></h1>
+              <p onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </p>
             </div>
-            <div class="col span_1_of_3">
-              <a href=""><%= image_tag( image_path("icones/excluir.png")) %> Excluir</a>
-            </div>
+            <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %>
+              <%= time_message post %></p>
+            <% if logged_in? %>
+              <p class="acoes">
+                <% if post.user.id == current_user.id %>
+                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <a onclick="document.getElementById('opcoes<%=index+1%>').style.display='block';"><%= image_tag( image_path("icones/opcoes.png")) %></a> <!-- PRA CADA POST TEM Q C 1 FUNCAOZINHA TIPO OPCOES3...4...-->
+                  <div id="opcoes<%=index+1%>" class="opcoes">
+                    <div class="section group">
+                      <div class="col span_1_of_3">
+                        <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
+                      </div>
+                      <div class="col span_1_of_3">
+                        <a href=""><%= image_tag( image_path("icones/excluir.png")) %> Excluir</a>
+                      </div>
+                    </div>
+                  </div>
+                <% else %>
+                  <a href="#"><%= image_tag( image_path("icones/votar.png")) %></a>
+                  <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a>
+                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <%= image_tag( image_path("icones/bloquear.png")) %>
+                <% end %>
+              </p>
+            <% end %>
           </div>
-        </div>
-      <% else %>
-      <a href="#"><%= image_tag( image_path("icones/votar.png")) %></a>
-        <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a> 
-        <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
-        <%= image_tag( image_path("icones/bloquear.png")) %>
-        
+        </article><br />
       <% end %>
-      </p>
-
-
-
-
-      <% end %>
-    </div>
-  </article><br />
-  <% end %>
-   
-</section>​
-</div>
-<!-- // TIMELINE -->
-                
+    </section>​
+  </div><!-- // TIMELINE -->
 </li> <!-- body-section -->
-
-<!-- COMENTADO 
+<!-- COMENTADO
 <table>
   <tbody>
     <% @posts.each do |post| %>
@@ -95,5 +87,5 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %> 
+<%= link_to 'New Post', new_post_path %>
 COMENTADO -->
