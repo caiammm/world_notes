@@ -18,22 +18,23 @@
     <ul id="navToggle" class="menu_resp slide">
       <li></li><li></li><li></li>
     </ul>
-    <h1><a href="#"><%= image_tag( image_path('logo.png') )%></a></h1>
+    <h1><a href="#"><%= link_to image_tag( image_path('logo.png') ), root_path %></a></h1>
   </header>
 
 
 <!-- MENU -->
   <nav class="slide">
     <ul>
-      <li><%= link_to "NOVO POST", new_post_path, class: 'first' %></li>
       <% if logged_in? %>
+        <li><%= link_to "NOVO POST", new_post_path, class: 'first' %></li>
         <li><%= link_to "FAVORITOS", user_favorites_path(current_user) %></li>
       <% else %>
+        <li><%= link_to "NOVO POST", login_path, class: 'first' %></li>
         <li><%= link_to "CRIAR CONTA", signup_path %></li>
       <% end %>
       <li><%= link_to "SOBRE", about_path %></li>
       <li><%= link_to "CONTATO", contact_path %></li>
-      <li><a href="#">PESQUISAR</a></li>  
+      <li><a href="#">PESQUISAR</a></li>
       <% if logged_in? %>
         <%= link_to image_tag( image_path("icones/excluir.png"), class: 'usuario_menu'), my_account_path(current_user) %>
       <% else %>
