@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(votes: :desc).limit(3)
   end
 
   # GET /posts/1
@@ -25,10 +25,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        flash.now[:success] = 'Post criado com sucesso'
+        format.html { redirect_to @post }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -69,6 +71,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :user_id, :tags, :votes)
+      params.require(:post).permit(:title, :content, :tags)
     end
 end
