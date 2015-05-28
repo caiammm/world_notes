@@ -2,16 +2,13 @@
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-
 
   <div class="login_div">
     <%= f.label :title, "Título" %><br />
@@ -19,43 +16,23 @@
 
     <%= f.label :content, "Conteúdo" %><br />
     <%= f.text_field :content, class: "form_input" %><br /><br />
-
     <!--
-
     <textarea onkeyup="limitaTextarea(this.value)" id="texto" cols="30" rows="10"></textarea>
     <p><span id="contador">5000</span> CARACTERES RESTANTES</p><br />
-     
      <%= text_area(:notes, cols: 40, rows: 15, :id => "texto") %>
-    
     -->
-
     <div class="div_check_resp">
       <div class="section group" >
-        <div class="col span_1_of_4">
-          <%= check_box_tag :categ_info %><%= f.label :categ_info, "Informática" %><br />
-          <%= check_box_tag :categ_culi %><%= f.label :categ_culi, "Culinária" %><br />
-        </div>
-        <div class="col span_1_of_4">
-          <%= check_box_tag :categ_prof %><%= f.label :categ_prof, "Profissão" %><br />
-          <%= check_box_tag :categ_autom %><%= f.label :categ_autom, "Automotivo" %><br />
-        </div>
-        <div class="col span_1_of_4">
-          <%= check_box_tag :categ_cons %><%= f.label :categ_cons, "Conserto" %><br />
-          <%= check_box_tag :categ_game %><%= f.label :categ_game, "Games" %><br />
-        </div>
-        <div class="col span_1_of_4">
-          <%= check_box_tag :categ_edu %><%= f.label :categ_edu, "Educação" %><br />
-          <%= check_box_tag :categ_tecn %><%= f.label :categ_tecn, "Tecnologia" %><br />
-        </div>
+        <% @tags.each do |type1, type2| %>
+          <div class="col span_1_of_4">
+            <%= check_box_tag 'tags_list[]', type1 %><%= f.label type1 %><br />
+            <%= check_box_tag 'tags_list[]', type2 %><%= f.label type2 %><br />
+          </div>
+        <% end %>
       </div>
     </div>
-    
     <%= f.submit "Postar", class: "btn btn-primary" %>
   </div>
-
 <% end %>
-
-  
-  
 
 

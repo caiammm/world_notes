@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.order(votes: :desc).limit(3)
+    @subjects = %w(INFORMÁTICA CULINÁRIA PROFISSÃO AUTOMOTIVOS CONSERTOS GAMES EDUCAÇÃO TECNOLOGIA)
   end
 
   # GET /posts/1
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @tags = [["Informática", "Culinária"], ["Profissão", "Automotivo"], ["Conserto", "Games"], ["Educação", "Tecnologia"]]
   end
 
   # GET /posts/1/edit
@@ -26,15 +28,15 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.tags = params[:tags_list]
 
     respond_to do |format|
       if @post.save
         flash.now[:success] = 'Post criado com sucesso'
-        format.html { redirect_to @post }
-        format.json { render action: 'show', status: :created, location: @post }
+        format.html { redirect_to my_account_path(current_user) }
       else
         format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        #format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
