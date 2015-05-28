@@ -36,7 +36,8 @@
                     <h1><%= link_to post.title, post_path(post) %></h1>
               <p onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </p>
             </div>
-            <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %> às 2:20pm, 4 Dez 2015</p>
+            <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %>
+              <%= time_message post %></p>
             <% if logged_in? %>
               <p class="acoes">
                 <% if post.user.id == current_user.id %>

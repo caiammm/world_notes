@@ -1,6 +1,6 @@
-class CreateFavorites < ActiveRecord::Migration
+class CreateVotes < ActiveRecord::Migration
   def change
-    create_table :favorites do |t|
+    create_table :votes do |t|
 
       t.integer :user_id, references: :users
       t.integer :post_id, references: :posts
