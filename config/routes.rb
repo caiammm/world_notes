@@ -1,6 +1,6 @@
 WorldNotes::Application.routes.draw do
 
-  
+
   root 'posts#index'
   get    'login', to: 'sessions#new'
   post   'login', to: 'sessions#create'
@@ -8,7 +8,7 @@ WorldNotes::Application.routes.draw do
   get 'signup', to: 'users#new'
 
   get 'my_account/:id', to: 'users#my_account', as: "my_account"
-  
+
   get 'contact', to: 'static_pages#contact'
 
   get 'about', to: 'static_pages#about'
@@ -16,6 +16,9 @@ WorldNotes::Application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  put 'posts/:id/vote_post', to: 'posts#vote_post', as: 'vote_post'
+  put 'posts/:id/unvote_post', to: 'posts#unvote_post', as: 'unvote_post'
 
   resources :users do
     resources :favorites
