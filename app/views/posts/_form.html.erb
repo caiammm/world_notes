@@ -1,21 +1,12 @@
 <%= form_for @post, url: {action: "create"} do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <% @object = @post %>
+  <%= render 'shared/error_messages' %>
   <div class="login_div">
     <%= f.label :title, "Título" %><br />
     <%= f.text_field :title, class: "form_input" %><br /><br />
 
     <%= f.label :content, "Conteúdo" %><br />
-    <%= f.text_field :content, class: "form_input" %><br /><br />
+    <%= f.text_area :content, size: '30x10' %><br /><br />
     <!--
     <textarea onkeyup="limitaTextarea(this.value)" id="texto" cols="30" rows="10"></textarea>
     <p><span id="contador">5000</span> CARACTERES RESTANTES</p><br />
@@ -23,7 +14,7 @@
     -->
     <div class="div_check_resp">
       <div class="section group" >
-        <% @tags.each do |type1, type2| %>
+        <% tags.each do |type1, type2| %>
           <div class="col span_1_of_4">
             <%= check_box_tag 'tags_list[]', type1 %><%= f.label type1 %><br />
             <%= check_box_tag 'tags_list[]', type2 %><%= f.label type2 %><br />
