@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :comments
   has_many :posts
   has_many :bad_reports
-  has_many :folders
+  has_many :folders, dependent: :destroy
 
   def voted_in?(post)
     Vote.find_by(post_id: post.id, user_id: self.id).nil? ? false : true
