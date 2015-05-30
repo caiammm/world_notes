@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.order(votes: :desc).limit(3)
-    @subjects = %w(INFORMÁTICA CULINÁRIA PROFISSÃO AUTOMOTIVOS CONSERTOS GAMES EDUCAÇÃO TECNOLOGIA)
+
   end
 
   # GET /posts/1
@@ -16,7 +16,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @tags = [["Informática", "Culinária"], ["Profissão", "Automotivo"], ["Conserto", "Games"], ["Educação", "Tecnologia"]]
   end
 
   # GET /posts/1/edit
