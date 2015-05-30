@@ -1,7 +1,7 @@
 <div class="banner_principal">
   <li class="header-section">
     <div class="section group">
-      <% @subjects.each_with_index do |subject, index| %>
+      <% subjects.each_with_index do |subject, index| %>
         <% if index+1 == 5 %>
           <div class="section group">
         <% end %>
@@ -33,7 +33,7 @@
           </a>
           <div class="post-body">
             <div class="text">
-                    <h1><%= link_to post.title, post_path(post) %></h1>
+              <h1><%= link_to post.title, post_path(post) %></h1>
               <p onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </p>
             </div>
             <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %>

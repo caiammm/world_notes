@@ -1,34 +1,35 @@
 <%= form_for(@user) do |f| %>
+  <% @object = @user %>
   <%= render 'shared/error_messages' %>
 
 <!-- CADASTRO -->
-<div class="form_estilo">
-  <h1>Cadastre já <br/> É SIMPLES!</h1>
-  
-  <form id="" action="">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, class: "form_input" %><br /><br />
-        
-        <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form_input" %><br /><br />
-        
-    <div class="div_senha_resp">
-      <div class="section group">
-        <div class="col_form span_1_of_2">
-          <%= f.label :password, "Senha" %>
-          <%= f.text_field :password, class: "form_input_senha" %>
-        </div>
+  <div class="form_estilo">
+    <h1>Cadastre já <br/> É SIMPLES!</h1>
 
-        <div class="col_form span_1_of_2">
-          <%= f.label :password_again, " Repetir Senha" %>
-          <%= f.text_field :password_again, class: "form_input_senha" %>
+    <form id="" action="">
+      <%= f.label :email %><br>
+      <%= f.text_field :email, class: "form_input" %><br /><br />
+
+          <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form_input" %><br /><br />
+
+      <div class="div_senha_resp">
+        <div class="section group">
+          <div class="col_form span_1_of_2">
+            <%= f.label :password, "Senha" %>
+            <%= f.password_field :password, class: "form_input_senha" %>
+          </div>
+
+          <div class="col_form span_1_of_2">
+            <%= f.label :password_again, " Repetir Senha" %>
+            <%= f.password_field :password_again, class: "form_input_senha" %>
+          </div>
         </div>
       </div>
-    </div>
-    <%= f.submit "Criar"%>
-  </form>
-</div><br /><br />
-<!-- CADASTRO -->
+      <%= f.submit "Criar"%>
+    </form>
+  </div><br /><br />
+  <!-- CADASTRO -->
 
 
 
