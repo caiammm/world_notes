@@ -17,4 +17,8 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
+
+  def previous_url
+    session[:return_to] ||= request.referer || root_url
+  end
 end

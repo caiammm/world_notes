@@ -5,13 +5,14 @@ module ApplicationHelper
       if object.created_at > Time.now.beginning_of_day
         "Edited #{time_ago_in_words(object.created_at)} atrás" # 3 minutes ago, less than a minute ago
       else
-        object.created_at.strftime("%b %d, %Y")  # Jun 29, 2012
+        l(object.created_at, format: :short)  # Jun 29, 2012
+          #l Time.now, format: :short
       end
     else
       if object.created_at > Time.now.beginning_of_day
         "#{time_ago_in_words(object.created_at)} atrás" # 3 minutes ago, less than a minute ago
       else
-        object.created_at.strftime("%b %d, %Y")  # Jun 29, 2012
+        l(object.created_at, format: :short)  # Jun 29, 2012
       end
     end
   end
