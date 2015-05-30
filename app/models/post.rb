@@ -1,6 +1,10 @@
 class Post < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :tags, presence: true
+
   belongs_to :user
   has_many :comments
   has_many :bad_reports
