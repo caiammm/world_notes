@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def my_account
+    @my_posts = Post.where(user_id: current_user.id)
   end
 
 
