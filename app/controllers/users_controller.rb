@@ -11,10 +11,6 @@ class UsersController < ApplicationController
     @my_posts = Post.where(user_id: current_user.id)
   end
 
-
-
-
-
   # GET /users/1
   # GET /users/1.json
   def show
@@ -36,13 +32,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-      if @user.save
-        log_in @user
-        flash[:success] = "Welcome to World Notes #{@user.name}"
-        format.html { redirect_to root_url }
+      if @user.save && user_params[:password] == user_params[:password_again]
+        flash.now[:success] = "Bem vindo ao World Notes #{@user.name}"
+        format.html { redirect_to 'login' }
         format.json { render action: 'show', status: :created, location: @user }
       else
-        format.html { render action: 'new' }
+        @user.errors.messages[:senhas] = ['não coincidem'] if user_params[:password] != user_params[:password_again]
+        format.html { render 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
