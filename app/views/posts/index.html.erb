@@ -54,7 +54,7 @@
                     </div>
                   </div>
                 <% else %>
-                  <a href="#"><%= image_tag( image_path("icones/votar.png")) %></a>
+                  <%= vote_button(post) %>
                   <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a>
                   <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
                   <%= image_tag( image_path("icones/bloquear.png")) %>

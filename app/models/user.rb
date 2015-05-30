@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :bad_reports
   has_many :folders
+
+  def voted_in?(post)
+    Vote.find_by(post_id: post.id, user_id: self.id).nil? ? false : true
+  end
+
 end

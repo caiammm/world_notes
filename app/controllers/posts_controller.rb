@@ -55,6 +55,39 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote_post
+    @post = Post.find(params[:id])
+    if @post.user.id == current_user.id
+      flash.now[:danger] = 'Você é o dono do post'
+    else
+      if current_user.voted_in?(@post)
+        flash.now[:danger] = 'Você já votou neste post'
+      else
+        Vote.create(post_id: @post.id, user_id: current_user.id)
+        @post.update_votes_count
+      end
+    end
+    respond_to do |format|
+      format.js {
+        render template: "posts/vote_post_changer.js.erb",
+               layout: false
+      }
+    end
+  end
+
+  def unvote_post
+    session[:return_to] ||= request.referer
+    @post = Post.find(params[:id])
+    Vote.find_by(user_id: current_user.id, post_id: @post.id).delete
+    @post.update_votes_count
+    respond_to do |format|
+      format.js {
+        render template: "posts/vote_post_changer.js.erb",
+               layout: false
+      }
+    end
+  end
+
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
