@@ -67,12 +67,13 @@
 
                         <% current_user.folders.each_with_index do |folder, index| %>
                           <div class="col span_1_of_3">
-                            <%= radio_button_tag :name, folder.name %>
+
+                            <%= radio_button_tag :name, folder.name , false, class: "folder_options" %>
                             <%= label_tag "name#{folder.name}", folder.name %>
                           </div>
                         <% end %>
                         <div class="col span_1_of_3">
-                          <%= radio_button_tag :name, nil %>
+                          <%= radio_button_tag :name, nil, false, class: "new_folder_options" %>
                           <%= text_field_tag "new_folder_name" %>
                         </div>
                         <div class="col span_1_of_3">
