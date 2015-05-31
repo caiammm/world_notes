@@ -15,14 +15,16 @@ WorldNotes::Application.routes.draw do
 
   resources :posts do
     resources :comments
+
   end
   resources :folders
+
 
   put 'posts/:id/vote_post', to: 'posts#vote_post', as: 'vote_post'
   put 'posts/:id/unvote_post', to: 'posts#unvote_post', as: 'unvote_post'
 
+  resources :favorites
   resources :users do
-    resources :favorites
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,4 +1,7 @@
-$(function() {
+$(document).ready(trunk);
+$(document).on('page:load', trunk);
+
+function trunk() {
     function mobilecheck() {
         var check = false;
         (function(a) {
@@ -36,4 +39,4 @@ $(function() {
         }
     });
 
-});
+};

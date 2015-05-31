@@ -24,6 +24,7 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
+    binding.pry
     @favorite = Favorite.new(favorite_params)
 
     respond_to do |format|
