@@ -1,14 +1,15 @@
+
 <div class="banner_principal">
   <li class="header-section">
     <div class="section group">
-      <% subjects.each_with_index do |subject, index| %>
+      <% subjects.each_with_index do |(k, v), index| %>
         <% if index+1 == 5 %>
           <div class="section group">
         <% end %>
         <div class="col span_1_of_4">
           <div class="img_zoom">
             <%= image_tag( image_path("banner/#{index+1}.jpg"), class: 'img_banner') %>
-            <div class="img_texto"> <p><%= subject %></p> </div>
+            <div class="img_texto"> <p><%= k.to_s %></p> </div>
           </div>
         </div>
       <% end %>
@@ -42,8 +43,8 @@
               <p class="acoes">
                 <% if post.user.id == current_user.id %>
                   <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
-                  <a onclick="document.getElementById('opcoes<%=index+1%>').style.display='block';"><%= image_tag( image_path("icones/opcoes.png")) %></a> <!-- PRA CADA POST TEM Q C 1 FUNCAOZINHA TIPO OPCOES3...4...-->
-                  <div id="opcoes<%=index+1%>" class="opcoes">
+                  <a id="button_options"class="button_options<%=index+1%>"><%= image_tag( image_path("icones/opcoes.png")) %></a> <!-- PRA CADA POST TEM Q C 1 FUNCAOZINHA TIPO OPCOES3...4...-->
+                  <div id="opcoes<%=index+1%>" class="button_options<%=index+1%>" style="display: none">
                     <div class="section group">
                       <div class="col span_1_of_3">
                         <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
