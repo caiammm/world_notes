@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.order(votes: :desc).limit(3)
-
+    @folder = Folder.new
   end
 
   # GET /posts/1
