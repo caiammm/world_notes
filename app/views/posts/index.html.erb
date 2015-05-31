@@ -46,7 +46,7 @@
                   <a id="button_options" class="button_options<%=index+1%>">
                     <%= image_tag( image_path("icones/opcoes.png")) %>
                   </a>
-                  <div class="button_options<%=index+1%>" style="display: none">
+                  <div id="opcoes<%=index+1%>" class="button_options<%=index+1%>" style="display: none">
                     <div class="section group">
                       <div class="col span_1_of_3">
                         <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
@@ -58,22 +58,7 @@
                   </div>
                 <% else %>
                   <%= vote_button(post) %>
-                  <a id="favorite_button" class="favorite_button_<%=index+1%>">
-                    <%= image_tag( image_path("icones/favoritar.png")) %>
-                  </a>
-
-                  <%= form_for(@folder) do |f| %>
-                    <div class="favorite_button_<%=index+1%>" style="display: none">
-                      <div class="section group">
-                        <div class="col span_1_of_3">
-                          <% current_user.folders.each do |folder| %>
-                            <%= f.radio_button :contactmethod, 'folder', :checked => true %> Email
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-
+                  <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a>
                   <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
                   <%= image_tag( image_path("icones/bloquear.png")) %>
                 <% end %>
