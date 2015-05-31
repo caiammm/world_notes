@@ -12,23 +12,23 @@
 				<tr>
 					<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Minhas Publicações</th>
 					<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Data</th>
-					<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Hora</th>
+					<th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Excluir</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @my_posts.each do |post| %>
 					<tr>
 						<td class="title"><%= link_to post.title, post_path(post) %></td>
-						<td><%= l(post.created_at, format: :date_only) %></td>
-						<td><%= post.created_at.strftime("%H:%M") %></td>
+						<td><%= l(post.created_at, format: :date_only) %> às <%= post.created_at.strftime("%H:%M") %></td>
+						<td><%= link_to 'Excluir', post, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
 					</tr>
 				<% end %>
 			</tbody>
 		</table>
 		<p><%= link_to "Gravatar: alterar minha imagem", 'https://en.gravatar.com/',
 							target: "_blank" %></p>
-		<p><%= link_to "Sair", logout_path, method: "delete" %></p>
-		<p><%= link_to 'Excluir Conta', current_user, method: :delete, data: { confirm: 'Tem certeza?' } %></p>
+		<p><%= link_to "Sair", logout_path, method: "delete", data: { confirm: 'Você tem certeza?' } %></p>
+		<p><%= link_to 'Excluir Conta', current_user, method: :delete, data: { confirm: 'Você tem certeza?' } %></p>
 
   </div>
 </li> <!-- body-section -->

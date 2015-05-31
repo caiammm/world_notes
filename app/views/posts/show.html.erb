@@ -1,19 +1,55 @@
+<li class="body-section">
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<!-- TÍTULO -->
+<div align="center"><div class="titulo">Visualizar - <%= @post.title %></div></div>
+<hr class="titulo_linha">
 
-<pre>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</pre>
+<!-- TIMELINE -->
+  <div class="centralizar_TM">
+    <section class="posts">
+        <article class="post">
+          <a class="post-img" href="#">
+            <%= gravatar_for @post.user %>
+          </a>
+          <div class="post-body">
+            <div class="text">
+              <h1><%= @post.title %></h1>
+              <p onclick="document.getElementById('opcoes').style.display='none';"> <%= @post.content %> </p>
+            </div>
+            <p class="attribution">por <%= link_to @post.user.name, user_path(@post.user) %>
+              <%= time_message @post %></p>
+            <% if logged_in? %>
+              <p class="acoes">
+                <% if @post.user.id == current_user.id %>
+                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <a id="button_options"class="button_options"><%= image_tag( image_path("icones/opcoes.png")) %></a> <!-- PRA CADA POST TEM Q C 1 FUNCAOZINHA TIPO OPCOES3...4...-->
+                  <div id="opcoes" class="button_options" style="display: none">
+                    <div class="section group">
+                      <div class="col span_1_of_3">
+                        <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
+                      </div>
+                      <div class="col span_1_of_3">
+                        <a href=""><%= image_tag( image_path("icones/excluir.png")) %> Excluir</a>
+                      </div>
+                    </div>
+                  </div>
+                <% else %>
+                  <%= vote_button(@post) %>
+                  <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a>
+                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <%= image_tag( image_path("icones/bloquear.png")) %>
+                <% end %>
+              </p>
+            <% end %>
+          </div>
+        </article><br />
+    </section>​
+  </div><!-- // TIMELINE -->
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
+
+
 
 <p>
   <strong>Tags:</strong>
@@ -25,5 +61,4 @@
   <%= @post.votes %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</li>

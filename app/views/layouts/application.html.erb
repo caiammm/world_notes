@@ -34,7 +34,7 @@
       <% end %>
       <li><%= link_to "SOBRE", about_path %></li>
       <li><%= link_to "CONTATO", contact_path %></li>
-      <li><a href="#">PESQUISAR</a></li>
+      <li><a href="#" onClick="document.getElementById('pesquisar_topo').style.display='block';">PESQUISAR</a></li>
       <% if logged_in? %>
         <li><%= link_to "MINHA CONTA", my_account_path(current_user) %></li>
       <% else %>
@@ -44,6 +44,12 @@
   </nav>
 <!-- //MENU -->
 
+<!-- PESQUISAR -->
+<div id="pesquisar_topo" class="pesquisar_estilo">
+  <a href="#" onClick="document.getElementById('pesquisar_topo').style.display='none';"><div align="right">X</div></a>
+    <div class="pesquisar_text">Login <input type=text> <input type="submit" value="Buscar"></div>
+</div>
+<!-- //PESQUISAR -->
 
   <div class="content slide">
     <ul class="responsive">

@@ -24,6 +24,28 @@ a {text-decoration: none; color:#2E436F}
 
 .about{font-size: 17px; padding-bottom: 50px; padding-left: 10%; padding-right: 10%}
 
+.pesquisar_estilo{
+    display:none;
+    position:absolute;
+    top:20%;
+    left:20%;
+    padding:20px;
+    background: rgba(244, 245, 246, 0.9);
+    width:60%;
+    height:200px;
+    z-index:9999;
+        
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+.pesquisar_text{
+    text-align:center;
+    padding-top:65px;
+}
+
 /* //GERAL */
 
 /* CONTEÚDO  */
