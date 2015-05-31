@@ -3,7 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  $('#button_options').click(function(){
+  $('a#button_options').click(function(){
     var target = $(this).attr('class');
     $('div.'+target).toggle();
   });
