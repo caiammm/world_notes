@@ -6,6 +6,15 @@ module PostsHelper
 
 
   def subjects
-    %w(INFORMÁTICA CULINÁRIA PROFISSÃO AUTOMOTIVOS CONSERTOS GAMES EDUCAÇÃO TECNOLOGIA)
+    {
+      INFORMÁTICA: "informatica",
+      CULINÁRIA: "culinaria",
+      PROFISSÃO: "profissao",
+      AUTOMOTIVOS: "automotivos",
+      CONSERTOS: "consertos",
+      GAMES: "games",
+      EDUCAÇÃO: "educacao",
+      TECNOLOGIA: "tecnologia"
+    }
   end
 end
