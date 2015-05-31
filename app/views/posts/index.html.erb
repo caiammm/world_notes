@@ -29,9 +29,10 @@
     <section class="posts">
       <% @posts.each_with_index do |post, index| %>
         <article class="post">
-          <a class="post-img" href="#">
+          <div class="post-img" href="#">
             <%= gravatar_for post.user %>
-          </a>
+            Votos <%= post.votes %>
+          </div>
           <div class="post-body">
             <div class="text">
               <h1><%= link_to post.title, post_path(post) %></h1>

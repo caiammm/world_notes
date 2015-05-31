@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save && user_params[:password] == user_params[:password_again]
         flash.now[:success] = "Bem vindo ao World Notes #{@user.name}"
-        format.html { redirect_to 'login' }
+        format.html { redirect_to login_path }
         format.json { render action: 'show', status: :created, location: @user }
       else
         @user.errors.messages[:senhas] = ['não coincidem'] if user_params[:password] != user_params[:password_again]
