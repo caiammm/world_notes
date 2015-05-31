@@ -2,7 +2,7 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(function(){
+$(document).on ('page:load', function(){
   $('a#button_options').click(function(){
     var target = $(this).attr('class');
     $('div.'+target).toggle();
