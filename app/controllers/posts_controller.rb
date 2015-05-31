@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.order(votes: :desc).limit(3)
     @folder = Folder.new
+    @favorite = Favorite.new
   end
 
   # GET /posts/1

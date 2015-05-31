@@ -27,7 +27,7 @@
     <ul>
       <% if logged_in? %>
         <li><%= link_to "NOVO POST", new_post_path, class: 'first' %></li>
-        <li><%= link_to "FAVORITOS", user_favorites_path(current_user) %></li>
+        <li><%= link_to "FAVORITOS", favorites_path(current_user) %></li>
       <% else %>
         <li><%= link_to "NOVO POST", login_path, class: 'first' %></li>
         <li><%= link_to "CRIAR CONTA", signup_path %></li>

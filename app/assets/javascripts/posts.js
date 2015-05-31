@@ -7,4 +7,11 @@ $(document).ready(function(){
     var target = $(this).attr('class');
     $('div.'+target).toggle();
   });
+
+  $('a#favorite_options').click(function(){
+    var target = $(this).attr('class');
+    $('div.'+target).toggle();
+  });
+
+
 });

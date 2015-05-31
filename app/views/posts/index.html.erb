@@ -39,14 +39,14 @@
             </div>
             <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %>
               <%= time_message post %></p>
-            <% if logged_in? %>
+            <% if logged_in? %><!-- logado -->
               <p class="acoes">
-                <% if post.user.id == current_user.id %>
+                <% if post.user.id == current_user.id %><!-- current user é o dono do post -->
                   <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
                   <a id="button_options" class="button_options<%=index+1%>">
                     <%= image_tag( image_path("icones/opcoes.png")) %>
                   </a>
-                  <div id="opcoes<%=index+1%>" class="button_options<%=index+1%>" style="display: none">
+                  <div class="button_options<%=index+1%>" style="display: none">
                     <div class="section group">
                       <div class="col span_1_of_3">
                         <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
@@ -56,14 +56,34 @@
                       </div>
                     </div>
                   </div>
-                <% else %>
+                <% else %> <!-- current_user não é dono do post -->
                   <%= vote_button(post) %>
-                  <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a>
+                  <a id="favorite_options" class="favorite_options<%=index+1%>"><%= image_tag( image_path("icones/favoritar.png")) %></a>
                   <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
                   <%= image_tag( image_path("icones/bloquear.png")) %>
+                  <div class="favorite_options<%=index+1%>" style="display: none">
+                    <div class="section group">
+                      <%= form_for @favorite, url: favorites_path(@favorite), html: { method: :post } do |f| %>
+
+                        <% current_user.folders.each_with_index do |folder, index| %>
+                          <div class="col span_1_of_3">
+                            <%= radio_button_tag :name, folder.name %>
+                            <%= label_tag "name#{folder.name}", folder.name %>
+                          </div>
+                        <% end %>
+                        <div class="col span_1_of_3">
+                          <%= radio_button_tag :name, nil %>
+                          <%= text_field_tag "new_folder_name" %>
+                        </div>
+                        <div class="col span_1_of_3">
+                          <%= f.submit "Salvar", class: "btn btn-primary" %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
                 <% end %>
               </p>
-            <% end %>
+            <% end %> <!-- logado -->
           </div>
         </article><br />
       <% end %>
