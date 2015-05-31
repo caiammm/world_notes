@@ -31,15 +31,15 @@
         <article class="post">
           <div class="post-img" href="#">
             <%= gravatar_for post.user %>
-            Votos <%= post.votes %>
           </div>
           <div class="post-body">
             <div class="text">
               <h1><%= link_to post.title, post_path(post) %></h1>
-              <p onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </p>
+              <pre onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </pre>
             </div>
-            <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %>
-              <%= time_message post %></p>
+            <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %> <%= time_message post %> - 
+              <%= post.votes %> <% if post.votes <= 1 %>Voto<% else %>Votos<% end %>
+            </p>
             <% if logged_in? %>
               <p class="acoes">
                 <% if post.user.id == current_user.id %>
@@ -59,8 +59,8 @@
                   </div>
                 <% else %>
                   <%= vote_button(post) %>
-                  <a href="#"><%= image_tag( image_path("icones/favoritar.png")) %></a>
-                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <%= image_tag( image_path("icones/favoritar.png")) %>
+                  <%= image_tag( image_path("icones/comentar.png")) %>
                   <%= image_tag( image_path("icones/bloquear.png")) %>
                 <% end %>
               </p>

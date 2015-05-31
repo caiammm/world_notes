@@ -1,6 +1,6 @@
 
 <% if current_user.voted_in?(@post) %>
-  $('.vote_img_<%= @post.id %>').attr('src', '<%= image_path("icones/desvotar.jpg")%>')
+  $('.vote_img_<%= @post.id %>').attr('src', '<%= image_path("icones/desvotar.png")%>')
   $('.vote_link_<%= @post.id %>').attr('href', '<%=unvote_post_path(@post)%>')
 <% else %>
   $('.vote_img_<%= @post.id %>').attr('src', '<%= image_path("icones/votar.png")%>')
