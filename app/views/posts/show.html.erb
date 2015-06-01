@@ -18,13 +18,15 @@
             <h1><%= @post.title %></h1>
             <pre onclick="document.getElementById('opcoes').style.display='none';"> <%= @post.content %> </pre>
           </div>
-          <p class="attribution">por <%= link_to @post.user.name, user_path(@post.user) %> <%= time_message @post %> - 
-            <%= @post.votes %> <% if @post.votes == 1 %>Voto<% else %>Votos<% end %>
+          <p class="attribution">por <%= link_to @post.user.name, user_path(@post.user) %> <%= time_message @post %> -
+              <spam class="vote_post_<%=@post.id%>">
+                <%= @post.votes_msg%>
+              </spam>
           </p>
           <% if logged_in? %>
             <p class="acoes">
               <% if @post.user.id == current_user.id %>
-                <a id="button_options"class="button_options"><%= image_tag( image_path("icones/opcoes.png")) %></a> 
+                <a id="button_options"class="button_options"><%= image_tag( image_path("icones/opcoes.png")) %></a>
                 <div id="opcoes" class="button_options" style="display: none">
                   <div class="section group">
                     <div class="opcoes">
@@ -75,7 +77,7 @@
                   <% if logged_in? %>
             <p class="acoes">
               <% if comment.user.id == current_user.id %>
-                <a id="button_options"class="button_options<%=index+1%>"><%= image_tag( image_path("icones/opcoes.png")) %></a> 
+                <a id="button_options"class="button_options<%=index+1%>"><%= image_tag( image_path("icones/opcoes.png")) %></a>
                 <div id="opcoes" class="button_options<%=index+1%>" style="display: none">
                   <div class="opcoes">
                     <div class="section group">
@@ -97,15 +99,15 @@
     </section>​
   </div><!-- // TIMELINE -->
 
+  <% if logged_in? %>
+    <%= form_for @comment, url: post_comments_path(@post), html: { method: :post } do |f| %>
 
-  <%= form_for @comment, url: post_comments_path(@post), html: { method: :post } do |f| %>
+    <div class="login_div">
+      <%= f.label :content, "Conteúdo" %><br />
+      <%= f.text_area :content, size: '30x10' %><br /><br />
+      <%= f.submit "Comentar", class: "btn btn-primary" %>
+    </div>
 
-  <div class="login_div">
-    <%= f.label :content, "Conteúdo" %><br />
-    <%= f.text_area :content, size: '30x10' %><br /><br />
-    <%= f.submit "Comentar", class: "btn btn-primary" %>
-  </div>
-
+    <% end %>
   <% end %>
-
 </li>

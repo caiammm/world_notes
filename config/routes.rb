@@ -1,5 +1,11 @@
 WorldNotes::Application.routes.draw do
 
+  # Rails.env.production?
+  if Rails.env.development?
+    get '404', :to => 'application#page_not_found'
+    get '422', :to => 'application#server_error'
+    get '500', :to => 'application#server_error'
+  end
 
   root 'posts#index'
   get    'login', to: 'sessions#new'
