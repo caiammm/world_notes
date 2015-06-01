@@ -41,7 +41,7 @@ class FavoritesController < ApplicationController
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to request.referer }
         format.json { render action: 'show', status: :created, location: @favorite }
       else
         format.html { redirect_to root_path }
