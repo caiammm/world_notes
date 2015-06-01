@@ -24,15 +24,27 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
-    binding.pry
-    @favorite = Favorite.new(favorite_params)
+    @favorite = Favorite.new
+    new_name = nil
+    if params[:name] == 'on' && params[:favorite][:new_folder_name].present?
+      new_name = params[:favorite][:new_folder_name]
+    elsif params[:name].present?
+      new_name = params[:name]
+    end
+    if new_name
+      folder = Folder.where(name: new_name, user_id: current_user.id).first_or_create!
+      @favorite.post_id = params[:post_id]
+      @favorite.user_id = current_user.id
+      @favorite.folder_id = folder.id
+    end
+
 
     respond_to do |format|
       if @favorite.save
-        format.html { redirect_to user_favorites_path, notice: 'Favorite was successfully created.' }
+        format.html { redirect_to root_path }
         format.json { render action: 'show', status: :created, location: @favorite }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to root_path }
         format.json { render json: @favorite.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +69,7 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite.destroy
     respond_to do |format|
-      format.html { redirect_to user_favorites_url }
+      format.html { redirect_to favorites_path }
       format.json { head :no_content }
     end
   end
@@ -70,6 +82,6 @@ class FavoritesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def favorite_params
-      params.require(:favorite).permit(:user_id, :post_id)
+      params.require(:favorite).permit(:user_id, :post_id, :folder_id)
     end
 end

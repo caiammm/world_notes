@@ -17,16 +17,23 @@ function ready(){
   });
 
   $('.folder_options').click(function(){
-    var target = $('#new_folder_name');
+    var target = $(this).attr('class').split(/\s+/);
+    target = $('.new_folder_name__'+target[1]);
     target.attr("disabled","disabled");
     target.val('')
   });
 
   $('.new_folder_options').click(function(){
-    var target = $('#new_folder_name');
+    var target = $(this).attr('class').split(/\s+/);
+    target = $('.new_folder_name__'+target[1]);
+
     target.attr("disabled", false);
     target.val('')
   });
 
+  $('.new_folder_options').click(function(){
+    var target = $(this).attr('class').split(/\s+/);
+    $('.new_folder_name__'+target[1]).focus();
+  });
 
 }

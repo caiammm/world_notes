@@ -15,15 +15,15 @@ WorldNotes::Application.routes.draw do
 
   resources :posts do
     resources :comments
-
+    resources :favorites
   end
   resources :folders
-
+  resources :favorites
 
   put 'posts/:id/vote_post', to: 'posts#vote_post', as: 'vote_post'
   put 'posts/:id/unvote_post', to: 'posts#unvote_post', as: 'unvote_post'
 
-  resources :favorites
+
   resources :users do
   end
 
