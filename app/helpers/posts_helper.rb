@@ -7,14 +7,14 @@ module PostsHelper
 
   def subjects
     {
-      INFORMÁTICA: "informatica",
-      CULINÁRIA: "culinaria",
-      PROFISSÃO: "profissao",
-      AUTOMOTIVOS: "automotivos",
-      CONSERTOS: "consertos",
-      GAMES: "games",
-      EDUCAÇÃO: "educacao",
-      TECNOLOGIA: "tecnologia"
+      INFORMÁTICA: "Informática",
+      CULINÁRIA: "Culinária",
+      PROFISSÃO: "Profissão",
+      AUTOMOTIVOS: "Automotivo",
+      CONSERTOS: "Conserto",
+      GAMES: "Games",
+      EDUCAÇÃO: "Educação",
+      TECNOLOGIA: "Tecnologia"
     }
   end
 end

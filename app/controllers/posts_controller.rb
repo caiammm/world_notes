@@ -24,6 +24,12 @@ class PostsController < ApplicationController
   def edit
   end
 
+  def by_subject
+    @query = params[:query]
+    @posts = Post.where("? = ANY (tags)", @query)
+    @favorite = Favorite.new
+  end
+
   # POST /posts
   # POST /posts.json
   def create

@@ -6,8 +6,8 @@ body {
 	text-rendering: optimizelegibility;
 }
 a {text-decoration: none; color:#2E436F}
-.titulo{ 
-	width:98%; 
+.titulo{
+	width:98%;
 	text-align:left;
 	font-size:25px;
 	color: #2E436F;
@@ -34,7 +34,7 @@ a {text-decoration: none; color:#2E436F}
     width:60%;
     height:200px;
     z-index:9999;
-        
+
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
@@ -50,7 +50,7 @@ a {text-decoration: none; color:#2E436F}
 
 /* CONTEÚDO  */
 .body-section,
-.footer-section 
+.footer-section
 {padding: 20px;}
 .header-section {background-color: #ffffff;}
 .body-section {background-color: #f4f5f6; padding-bottom: 150px}
@@ -96,12 +96,12 @@ a {text-decoration: none; color:#2E436F}
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0;    
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);    
+    opacity: 0;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
     border-radius: 2px;
     text-align: center;
     padding: 15px;
- 
+
     -webkit-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
     -moz-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
      -ms-transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
@@ -112,7 +112,7 @@ a {text-decoration: none; color:#2E436F}
     opacity: 1;
     box-shadow: inset 0 0 100px 50px rgba(0,0,0,.5);
 }
-.img_zoom .img_texto p {
+.img_zoom .img_texto a {
 	padding-right:15px;
 	padding-top:25%;
 	font-size:20px;
@@ -199,7 +199,7 @@ section {
     margin: 0 0 1em;
     margin-left: 40px;
     *zoom: 1;
-    width: 100%; 
+    width: 100%;
 }
 .post-img {
     float: left;
@@ -245,7 +245,7 @@ section {
     background: #ccc;
 }
 .post:hover {
-    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */ 
+    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */
     /* cursor: cell;  This line is for the cursor */
 }
 .post:hover:before { background: #2E436F }
@@ -334,7 +334,7 @@ section {
     background: #ccc;
 }
 .comentario:hover {
-    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */ 
+    /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */
     /* cursor: cell;  This line is for the cursor */
 }
 .comentario:hover:before { background: #59a7f6 }

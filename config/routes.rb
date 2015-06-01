@@ -11,6 +11,7 @@ WorldNotes::Application.routes.draw do
 
   get 'contact', to: 'static_pages#contact'
 
+  get 'by_subject', to: 'posts#by_subject', as: 'posts_by_subject'
   get 'about', to: 'static_pages#about'
 
   resources :posts do
@@ -19,6 +20,7 @@ WorldNotes::Application.routes.draw do
   end
   resources :folders
   resources :favorites
+
 
   put 'posts/:id/vote_post', to: 'posts#vote_post', as: 'vote_post'
   put 'posts/:id/unvote_post', to: 'posts#unvote_post', as: 'unvote_post'

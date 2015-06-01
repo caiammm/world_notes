@@ -1,27 +1,7 @@
-
-<div class="banner_principal">
-  <li class="header-section">
-    <div class="section group">
-      <% subjects.each_with_index do |(k, v), index| %>
-        <% if index+1 == 5 %>
-          <div class="section group">
-        <% end %>
-        <div class="col span_1_of_4">
-          <div class="img_zoom">
-            <%= image_tag( image_path("banner/#{index+1}.jpg"), class: 'img_banner') %>
-            <div class="img_texto"> <%= link_to k.to_s, posts_by_subject_path(query: v) %> </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </li>
-</div>
-<!-- //BANNER -->
-
 <li class="body-section">
 
   <!-- TÍTULO -->
-  <div align="center"><div class="titulo">Publicações Mais Votadas</div></div>
+  <div align="center"><div class="titulo">Publicações - <%= @query%></div></div>
   <hr class="titulo_linha">
 
   <!-- TIMELINE -->
@@ -93,25 +73,3 @@
     </section>​
   </div><!-- // TIMELINE -->
 </li> <!-- body-section -->
-<!-- COMENTADO
-<table>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.user_id %></td>
-        <td><%= post.tags %></td>
-        <td><%= post.votes %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
-COMENTADO -->
