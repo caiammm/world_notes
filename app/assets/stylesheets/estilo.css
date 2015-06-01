@@ -196,7 +196,7 @@ a {text-decoration: none; color:#2E436F}
 /* TIMELINE */
 section {
     height: 100%;
-    width: 96%;
+    width: 98.5%;
     margin: auto;
 }
 .post {
@@ -229,7 +229,7 @@ section {
     color: #666;
 }
 /* Decoration */
-.posts{ margin-left: -17px}
+.posts{ margin-left: -29px}
 
 .posts, .post { position: relative }
 .posts:before, .post:before, .post .text:before {
