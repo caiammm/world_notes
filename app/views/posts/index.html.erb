@@ -51,10 +51,12 @@
                     <div class="opcoes">
                       <div class="section group">
                         <div class="col span_1_of_2">
-                          <a href=""><%= image_tag( image_path("icones/editar.png")) %> <%= link_to 'Editar', edit_post_path(post) %></a>
+                          <%= link_to image_tag( image_path("icones/editar.png")), edit_post_path(post) %>
+                          <%= link_to 'Editar', edit_post_path(post) %>
                         </div>
                         <div class="col span_1_of_2">
-                          <%= image_tag( image_path("icones/excluir.png")) %> <%= link_to 'Excluir', post, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+                          <%= link_to image_tag( image_path("icones/excluir.png")), post, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+                          <%= link_to 'Excluir', post, method: :delete, data: { confirm: 'Você tem certeza?' } %>
                         </div>
                       </div>
                     </div>
