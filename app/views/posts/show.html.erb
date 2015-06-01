@@ -32,7 +32,7 @@
                         <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
                       </div>
                       <div class="col span_1_of_2">
-                        <a href=""><%= image_tag( image_path("icones/excluir.png")) %> Excluir</a>
+                        <a href=""><%= image_tag( image_path("icones/excluir.png")) %> <%= link_to 'Excluir', @post, method: :delete, data: { confirm: 'Você tem certeza?' } %>
                       </div>
                     </div>
                   </div>
