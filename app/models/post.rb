@@ -14,4 +14,15 @@ class Post < ActiveRecord::Base
     self.update_attribute(:votes, count)
   end
 
+  def votes_msg
+    case self.votes
+    when 0
+      '0 Votos'
+    when 1
+      '1 Voto'
+    else
+      "#{self.votes} Votos"
+    end
+  end
+
 end

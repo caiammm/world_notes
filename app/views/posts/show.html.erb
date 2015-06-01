@@ -19,7 +19,9 @@
             <pre onclick="document.getElementById('opcoes').style.display='none';"> <%= @post.content %> </pre>
           </div>
           <p class="attribution">por <%= link_to @post.user.name, user_path(@post.user) %> <%= time_message @post %> -
-            <%= @post.votes %> <% if @post.votes == 1 %>Voto<% else %>Votos<% end %>
+              <spam class="vote_post_<%=@post.id%>">
+                <%= @post.votes_msg%>
+              </spam>
           </p>
           <% if logged_in? %>
             <p class="acoes">
