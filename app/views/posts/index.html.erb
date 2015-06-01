@@ -35,32 +35,34 @@
           <div class="post-body">
             <div class="text">
               <h1><%= link_to post.title, post_path(post) %></h1>
-              <pre onclick="document.getElementById('opcoes<%=index+1%>').style.display='none';"> <%= post.content %> </pre>
+              <pre> <%= post.content %> </pre>
             </div>
             <p class="attribution">por <%= link_to post.user.name, user_path(post.user) %> <%= time_message post %> - 
-              <%= post.votes %> <% if post.votes <= 1 %>Voto<% else %>Votos<% end %>
+              <%= post.votes %> <% if post.votes == 1 %>Voto<% else %>Votos<% end %>
             </p>
             <% if logged_in? %>
               <p class="acoes">
                 <% if post.user.id == current_user.id %><!-- current user é o dono do post -->
-                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <%= link_to image_tag( image_path('icones/comentar.png')), post_path(post) %>
                   <a id="button_options" class="button_options<%=index+1%>">
                     <%= image_tag( image_path("icones/opcoes.png")) %>
                   </a>
                   <div class="button_options<%=index+1%>" style="display: none">
-                    <div class="section group">
-                      <div class="col span_1_of_3">
-                        <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
-                      </div>
-                      <div class="col span_1_of_3">
-                        <a href=""><%= image_tag( image_path("icones/excluir.png")) %> Excluir</a>
+                    <div class="opcoes">
+                      <div class="section group">
+                        <div class="col span_1_of_2">
+                          <a href=""><%= image_tag( image_path("icones/editar.png")) %> Editar</a>
+                        </div>
+                        <div class="col span_1_of_2">
+                          <a href=""><%= image_tag( image_path("icones/excluir.png")) %> Excluir</a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 <% else %> <!-- current_user não é dono do post -->
                   <%= vote_button(post) %>
                   <a id="favorite_options" class="favorite_options<%=index+1%>"><%= image_tag( image_path("icones/favoritar.png")) %></a>
-                  <a href="#"><%= image_tag( image_path("icones/comentar.png")) %></a>
+                  <%= link_to image_tag( image_path('icones/comentar.png')), post_path(post) %>
                   <%= image_tag( image_path("icones/bloquear.png")) %>
                   <div class="favorite_options<%=index+1%>" style="display: none">
                     <div class="section group">
@@ -68,7 +70,6 @@
 
                         <% current_user.folders.each_with_index do |folder, index| %>
                           <div class="col span_1_of_3">
-
                             <%= radio_button_tag :name, folder.name , false, class: "folder_options" %>
                             <%= label_tag "name#{folder.name}", folder.name %>
                           </div>

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.order(votes: :desc).limit(3)
+    @posts = Post.order(votes: :desc).limit(5)
     @folder = Folder.new
     @favorite = Favorite.new
   end
@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment= Comment.new
   end
 
   # GET /posts/new
