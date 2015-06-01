@@ -65,23 +65,17 @@
                   <%= link_to image_tag( image_path('icones/comentar.png')), post_path(post) %>
                   <%= image_tag( image_path("icones/bloquear.png")) %>
                   <div class="favorite_options<%=index+1%>" style="display: none">
-                    <div class="section group">
-                      <%= form_for @favorite, url: post_favorites_path(post), html: { method: :post } do |f| %>
+                    <div class="favoritos_estilo">
+                    <%= form_for @favorite, url: post_favorites_path(post), html: { method: :post } do |f| %>
 
-                        <% current_user.folders.each_with_index do |folder, index2| %>
-                          <div class="col span_1_of_3">
-                            <%= radio_button_tag :name, folder.name , false, class: "folder_options favorite#{index+1}" %>
-                            <%= label_tag "name#{folder.name}", folder.name %>
-                          </div>
-                        <% end %>
-                        <div class="col span_1_of_3">
-                          <%= radio_button_tag :name, nil, false, class: "new_folder_options favorite#{index+1}" %>
-                          <%= f.text_field "new_folder_name", class: "new_folder_name__favorite#{index+1}" %>
-                        </div>
-                        <div class="col span_1_of_3">
-                          <%= f.submit "Salvar", class: "btn btn-primary" %>
-                        </div>
+                      <% current_user.folders.each_with_index do |folder, index2| %>
+                          <%= radio_button_tag :name, folder.name , false, class: "folder_options favorite#{index+1}" %>
+                          <%= label_tag "name#{folder.name}", folder.name %><br />
                       <% end %>
+                        <%= radio_button_tag :name, nil, false, class: "new_folder_options favorite#{index+1}" %>
+                        <%= f.text_field "new_folder_name", disabled: true, class: "new_folder_name__favorite#{index+1}", placeholder: 'Criar nova pasta' %><br />
+                      <%= f.submit "Salvar", class: "btn btn-primary" %>
+                    <% end %>
                     </div>
                   </div>
                 <% end %>
